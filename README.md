@@ -2,7 +2,7 @@
 
 ## Guides
 
-### Broadlink wifi remote commands
+### Broadlink wifi remote
 
 #### 1. Adding New Commands to Broadlink Remote
 
@@ -72,3 +72,37 @@ All registered commands are stored in Home Assistant’s hidden `.storage` folde
 ---
 
 Video: https://www.youtube.com/watch?v=lWCHZm9xWno
+
+
+
+### 📝 Aqara KD-R01D (H2 Dimmer EU) Pairing with Zigbee2MQTT
+
+#### ✅ Factory Reset (Important if Previously Paired)
+1. **Press the main button 10 times quickly** (within ~5 seconds).
+2. The LED will blink **red rapidly** → Device is now **reset**.
+
+#### 🔄 Enter Pairing Mode
+1. Put **Zigbee2MQTT** in **Permit Join** mode.
+2. **Press the button 5 times quickly**.
+3. The LED blinks **purple** → Pairing mode active.
+
+---
+
+#### 🔢 Quick Reference Table
+
+| Action                 | How to Do It                              | LED Response        |
+|------------------------|--------------------------------------------|---------------------|
+| **Factory Reset**       | Press button **10 times quickly**          | Rapid **red** flash |
+| **Enter Pairing Mode**  | Press button **5 times quickly**           | **Purple** blinking |
+
+---
+
+#### 💡 Additional Notes:
+- If the LED turns **red** after purple → pairing failed → try again closer to the coordinator.
+- Supported Zigbee channels: **11, 15, 20, 25** (avoid channel 26).
+- Ensure your **Zigbee2MQTT** and **Zigbee coordinator firmware** are up to date.
+
+---
+
+#### 🔗 Useful Links:
+- [Zigbee2MQTT Supported Devices](https://www.zigbee2mqtt.io/supported-devices.html)
