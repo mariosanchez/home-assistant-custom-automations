@@ -17,7 +17,7 @@
     - power_on
     - power_off
     ```
-- Click **Call Service**.
+- Click **Perform action**.
 - Follow the on-screen notifications:
   - Point the original remote at the Broadlink device.
   - Press the button(s) when prompted.
@@ -32,7 +32,7 @@
   ```remote.send_command```
 - Select the **Broadlink remote** under **Target**.
 - Enter the **Device** and **Command** name you want to test.
-- Click **Call Service** to test the command.
+- Click **Perform action** to test the command.
 
 ---
 
@@ -41,7 +41,7 @@
 - Use the service:  
   ```remote.delete_command```
 - Select the **Broadlink remote**, device name, and command to delete.
-- Click **Call Service**.
+- Click **Perform action**.
 
 ---
 
@@ -50,7 +50,7 @@
 - In **Configuration > Automations & Scripts > Scripts**, click **Add Script**.
 - Name the script and optionally choose an icon.
 - Under **Sequence**, set:
-  - **Action Type**: `Call Service`
+  - **Action Type**: `Perform action`
   - **Service**:  
     ```remote.send_command```
   - **Target**: Select your **Broadlink remote**.
