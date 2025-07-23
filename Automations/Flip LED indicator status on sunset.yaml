@@ -1,0 +1,57 @@
+alias: Pasillo - Dimmer Luces LED nocturno
+description: Enciende el LED al atardecer y lo apaga al amanecer
+triggers:
+  - event: sunset
+    offset: "0:00"
+    id: sunset
+    trigger: sun
+  - event: sunrise
+    offset: "0:00"
+    id: sunrise
+    trigger: sun
+  - event: start
+    id: startup
+    trigger: homeassistant
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: sunset
+        sequence:
+          - target:
+              entity_id: switch.pasillo_dimmer_luces_flip_indicator_light
+            action: switch.turn_on
+            data: {}
+      - conditions:
+          - condition: trigger
+            id: sunrise
+        sequence:
+          - target:
+              entity_id: switch.pasillo_dimmer_luces_flip_indicator_light
+            action: switch.turn_off
+            data: {}
+      - conditions:
+          - condition: trigger
+            id: startup
+        sequence:
+          - choose:
+              - conditions:
+                  - condition: sun
+                    after: sunset
+                    before: sunrise
+                sequence:
+                  - target:
+                      entity_id: switch.pasillo_dimmer_luces_flip_indicator_light
+                    action: switch.turn_on
+                    data: {}
+              - conditions:
+                  - condition: sun
+                    after: sunrise
+                    before: sunset
+                sequence:
+                  - target:
+                      entity_id: switch.pasillo_dimmer_luces_flip_indicator_light
+                    action: switch.turn_off
+                    data: {}
+mode: single
